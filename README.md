@@ -60,3 +60,6 @@ gcc -o graph graph.c -lm
 Output
 
 The program outputs a visual representation of the Gaussian-like function $y = 2^{(-x^2)}$ centered at the origin, scaled appropriately for a terminal window.
+
+
+user can run programme on their own complier.
