@@ -1,129 +1,123 @@
-#include<windows.h>
+#include <windows.h>
+#include <stdio.h>
+#include <math.h>
 
-#include<stdio.h>
-
-#include<math.h>
-
-
-
-void prox(float *x)
-
+void fill(char arr[][801])
 {
-
-*x = round(*x * 100) / 100;
-
+    int i, j;
+    for (i = 0; i < 401; i++)
+        for (j = 0; j < 801; j++)
+            arr[i][j] = ' ';
+    for (j = 0; j < 801; j++)
+        arr[200][j] = 219;
+    for (i = 0; i < 401; i++)
+        arr[i][400] = 219;
 }
 
-
-
-void fill(char arr[][1601])
-
+void print(char arr[][801])
 {
-
-int i, j;
-
-for (i = 0; i < 801; i++)
-
-{
-
-for (j = 0; j < 1601; j++)
-
-{
-
-arr[i][j] = ' ';
-
+    int i;
+    for (i = 0; i < 401; i++)
+    {
+        fwrite(arr[i], 1, 801, stdout);
+        putchar('\n');
+    }
 }
 
-}
-
-for (j = 0; j < 1601; j++)
-
-arr[400][j] = 219;
-
-
-
-for (i = 0; i < 801; i++)
-
-arr[i][800] = 219;
-
-}
-
-
-
-void print(char arr[][1601])
-
+void foo(char arr[][801])
 {
+    float xv, yv;
+    int row, col;
+    for (xv = -10.0; xv <= 10.0; xv += 0.01)
+    {
+        yv = pow(20 - xv * xv, 0.5);
+        col = 400 + (int)round(xv * 40);
+        row = 200 - (int)round(yv * 20);
+        if (row >= 0 && row < 401 && col >= 0 && col < 801)
+            arr[row][col] = 219;
+    }
+}
 
-int i, j;
-
-for (i = 0; i < 801; i++)
-
+void fo(char arr[][801])
 {
+    float xv, yv;
+    int row, col;
+    for (xv = -10.0; xv <= 10.0; xv += 0.01)
+    {
+        yv = -pow(20 - xv * xv, 0.5);
+        col = 400 + (int)round(xv * 40);
+        row = 200 - (int)round(yv * 20);
+        if (row >= 0 && row < 401 && col >= 0 && col < 801)
+            arr[row][col] = 219;
+    }
+}
 
-for (j = 0; j < 1601; j++)
-
+void fox(char arr[][801])
 {
-
-printf("%c", arr[i][j]);
-
+    float xv, yv;
+    int row, col;
+    for (xv = -10.0; xv <= 10.0; xv += 0.01)
+    {
+        yv = xv * xv;
+        col = 400 + (int)round(xv * 40);
+        row = 200 - (int)round(yv * 20);
+        if (row >= 0 && row < 401 && col >= 0 && col < 801)
+            arr[row][col] = 219;
+    }
 }
 
-printf("\n");
-
-}
-
-}
-
-
-
-void fo(char arr[][1601])
-
+void foxo(char arr[][801])
 {
+    float xv, yv;
+    int row, col;
+    for (xv = -10.0; xv <= 10.0; xv += 0.01)
+    {
+        yv = xv / 2 - tan(xv) + sin(xv);
+        col = 400 + (int)round(xv * 40);
+        row = 200 - (int)round(yv * 20);
+        if (row >= 0 && row < 401 && col >= 0 && col < 801)
+            arr[row][col] = 219;
+    }
+}
 
-float xv, yv;
-
-int row, col;
-
-
-
-for (xv = -10.0; xv <= 10.0; xv += 0.005)
-
+void go(char arr[][801])
 {
-
-yv = pow(2,pow(-xv,2));
-
-col = 800 + (int)round(xv * 80);
-
-row = 400 - (int)round(yv * 40);
-
-
-
-if (row >= 0 && row < 801 && col >= 0 && col < 1601)
-
-arr[row][col] = 219;
-
+    float xv, yv;
+    int row, col, i = 0;
+    for (xv = -10.0; xv <= 10.0; xv += 0.01)
+    {
+        yv = i % 5;
+        col = 400 + (int)round(xv * 40);
+        row = 200 - (int)round(yv * 20);
+        i++;
+        if (row >= 0 && row < 401 && col >= 0 && col < 801)
+            arr[row][col] = 219;
+    }
 }
 
+void gox(char arr[][801])
+{
+    float xv, yv;
+    int row, col, i = 0;
+    for (xv = -10.0; xv <= 10.0; xv += 0.01)
+    {
+        if (xv == 0) continue;
+        yv = 1 / xv;
+        col = 400 + (int)round(xv * 40);
+        row = 200 - (int)round(yv * 20);
+        i++;
+        if (row >= 0 && row < 401 && col >= 0 && col < 801)
+            arr[row][col] = 219;
+    }
 }
-
-
 
 int main()
-
 {
-
-int i = 0;
-
-char graph[801][1601];
-
-fill(graph);
-
-for (i = 0; i < 100; i++)
-
-printf("\n");
-
-fo(graph);
-
-print(graph);
-
+    int i = 0;
+    char graph[401][801];
+    fill(graph);
+    for (i = 0; i < 100; i++)
+        printf("\n");
+    gox(graph);
+    print(graph);
 }
